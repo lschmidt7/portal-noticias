@@ -2,20 +2,20 @@
 
     require("conn.php");
 
+    $nome  = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
     // busca no BD
-    $sql = "SELECT * FROM users WHERE email='$email' AND senha='$senha'";
+    $sql = "INSERT INTO users (nome,email,senha) VALUES('$nome','$email','$senha')";
     $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
-        session_start();
-        $_SESSION['email'] = $email;
+    if($result === TRUE)
+    {
         header("Location: index.php");
     }
     else {
-        echo "Usuário não encontrado";
+        echo "Erro ao cadastrar";
         echo "<a href='index.php'>Voltar</a>";
     }
 
