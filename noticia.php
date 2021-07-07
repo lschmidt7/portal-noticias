@@ -30,4 +30,12 @@
         ?>
         </p>
     </div>
+    <div>
+        <p>
+        <?php
+            $id_noticia = $linha['id'];
+            echo "<a href='delete_noticia.php?id=$id_noticia'>Excluir</a>";
+        ?>
+        </p>
+    </div>
 </div>
